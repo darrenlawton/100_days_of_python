@@ -41,6 +41,8 @@ def start_game():
 	print(f"the dealer's second card is {dealer_cards[1]}")
 	while sum(dealer_cards) < 17:
 		dealer_cards.append(random.choice(cards))
+		if sum(dealer_cards) > 21 and 11 in dealer_cards:
+			dealer_cards = replace_ace(dealer_cards)
 
 	print(f"the dealer has been dealt {get_nice_string(dealer_cards)} and has a score of {sum(dealer_cards)}")
 
@@ -51,6 +53,7 @@ def start_game():
 		print("Draw")
 	elif sum(dealer_cards) > sum(player_cards):
 		print("You Lose..")
+	else: print("You Win!")
 
 def get_nice_string(list_or_iterator):
 	return  ",  ".join( str(x) for x in list_or_iterator)
