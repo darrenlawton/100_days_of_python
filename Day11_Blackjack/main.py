@@ -31,8 +31,8 @@ def start_game():
 			if sum(player_cards) > 21:
 				print("You Lose..")
 				game_status = False
-			elif sum(player_cards) == 21:
-				print("You Win!")
+			elif sum(player_cards) == 21 and len(player_cards) == 2:
+				print("Blackjack baby, you Win!")
 				return
 		else:
 			game_status = False
