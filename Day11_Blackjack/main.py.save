@@ -1,0 +1,39 @@
+import random
+
+# Use the following list as the deck of cards:
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
+def start_game():
+	game_status = True
+
+	print("let's play, good luck")
+	player_cards = random.choices(cards, k=2)
+
+	print(f"you've been dealt {get_nice_string(player_cards)} and have a score of {sum_cards(player_cards)}")
+
+
+	dealers_cards = random.choices(cards, k=2)
+	print(f"the dealers first card is {dealers_cards[0]}")
+
+	while game_status:
+		next_move = input("Hit or Hold? ")
+
+		if next_move == "Hit":
+			player_cards.append(random.choice(cards))
+			# Assess for 11 if score > 21
+			if sum(players_cards) > 21:
+				replace_first_		else:
+			game_status = False
+	
+	# Deal to do their thing here (i.e. if less than 14, keep hitting)
+
+
+	# Compare player vs deal score to determine winner
+
+def get_nice_string(list_or_iterator):
+	return  ",  ".join( str(x) for x in list_or_iterator)  
+
+def sum_cards(card_list):
+	return sum(card_list)
+
+start_game()
