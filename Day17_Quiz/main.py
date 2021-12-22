@@ -1,11 +1,12 @@
 from question_model import Question
 from quiz_brain import QuizBrain
+from random import shuffle
 import requests
 
 def CreateQuestionBank(n_questions = 10, difficulty = 'Medium'):
 	url = "https://opentdb.com/api.php?amount="+n_questions+"&category=9&difficulty="+difficulty.lower()+"&type=boolean"
 	source = requests.get(url).json()
-
+	print(source)
 	question_bank = []
 	for qdict in source["results"]:
 		question_bank.append(Question(qdict["question"], qdict["correct_answer"]))
